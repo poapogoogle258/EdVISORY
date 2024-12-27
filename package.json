@@ -1,0 +1,32 @@
+{
+  "name": "edvisory",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p tsconfig.json",
+    "start": "tsc -p tsconfig.json && node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@fastify/basic-auth": "^6.0.2",
+    "@fastify/multipart": "^9.0.1",
+    "@fastify/static": "^8.0.3",
+    "ajv": "^8.17.1",
+    "dotenv": "^16.4.7",
+    "fastify": "^5.2.0",
+    "glob": "^11.0.0",
+    "kysely": "^0.27.5",
+    "mysql2": "^3.12.0",
+    "remove": "^0.1.5",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
