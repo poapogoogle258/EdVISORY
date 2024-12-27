@@ -10,6 +10,7 @@ assignment Back-End Developer : IncomeStatement
   - TypeORM
   - Joi
   - mongoose (ห้ามใช้ในการพัฒนา)
+
 5.ระบบเฉลี่ยเงินทสามารถใชร้ายวันได้จนจบเดือนจาก.. เช่นมีรายรับทั้งหมดอยู่ท 500 มีรายจ่าย 300 เหลือเวลาอีก 10วันจนถึงสิ้นเดือน ระบบจะบอกว่าเหลือเงินทสามารถใชร้ายจ่ายวันได้20 บาทต่อวัน
 
 ref : https://drive.google.com/file/d/1cneFOhoHBBbo3QAeOuYX0AqH4fgbAOw8/view
