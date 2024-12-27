@@ -122,7 +122,12 @@ export async function createTransaction(request : FastifyRequest<{Body: bodyTran
     const newTransaction = db.Transactions.create(insect)
 
     try {
+
         await db.Transactions.save(newTransaction)
+        
+        transactionAccount.amount = transactionAccount.amount + request.body.amount
+        await db.Accounts.save(transactionAccount)
+
         reply.code(200).send(buildResponse(200, newTransaction))
     } catch (error) {
         reply.code(500).send(buildErrorResponse(500, error))
@@ -150,6 +155,8 @@ export async function editTransaction(request : FastifyRequest<{Body: bodyTransa
         return
     }
 
+    const difference = request.body.amount - transaction.amount
+
     transaction.amount = request.body.amount
     transaction.note = antiSwear(request.body.note)
     transaction.type = transactionType
@@ -157,6 +164,10 @@ export async function editTransaction(request : FastifyRequest<{Body: bodyTransa
 
     try{
         await db.Transactions.save(transaction)
+
+        transactionAccount.amount = transactionAccount.amount + difference
+        await db.Accounts.save(transactionAccount)
+
         reply.code(200).send(buildResponse(200, transaction))
     }catch(error){
         reply.code(500).send(buildErrorResponse(500, error))
@@ -167,9 +178,15 @@ export async function editTransaction(request : FastifyRequest<{Body: bodyTransa
 export async function deleteTransaction(request : FastifyRequest<{Params:params}>, reply : FastifyReply) {
     const transactionId = request.params.transactionId
 
-    const isExistTransaction = await db.Transactions.exists({where:{ id : transactionId }})
-    if(!isExistTransaction){
+    const transaction = await db.Transactions.findOne({ where :{ id : transactionId }, relations : ["account"]})
+    if(transaction == null){
         reply.code(400).send(buildErrorResponse(400, "transaction id not fount"))
+        return
+    }
+
+    const transactionAccount = await db.Accounts.findOneBy({ id : transaction.account.id })
+    if(transactionAccount == null){
+        reply.code(500).send(buildErrorResponse(500, "not fount account id in transaction"))
         return
     }
 
@@ -179,6 +196,9 @@ export async function deleteTransaction(request : FastifyRequest<{Params:params}
             .softDelete()
             .where("id = :id", {id : transactionId})
             .execute()
+
+        transactionAccount.amount = transactionAccount.amount - transaction.amount
+        await db.Accounts.save(transactionAccount)
 
         reply.code(200).send(buildResponse(200, null))
     }catch(error){

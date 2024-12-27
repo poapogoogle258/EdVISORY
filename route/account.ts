@@ -2,6 +2,8 @@ import { FastifyInstance } from "fastify"
 
 import { getAccount, createAccount, updateAccount, deleteAccount } from "../handlers/accounts"
 
+import { challenge } from "../handlers/challenge"
+
 const bodyJsonAccount = {
     type: "object",
     properties : {
@@ -28,4 +30,6 @@ export function route(instance : FastifyInstance){
     instance.post("/api/accounts", {schema : { body : bodyJsonAccount }}, createAccount)
     instance.patch("/api/accounts/:accountId", {schema : { body : bodyJsonAccount }}, updateAccount)
     instance.delete("/api/accounts/:accountId", {}, deleteAccount)
+
+    instance.get("/challenge/accounts/:accountId", {}, challenge )
 }
