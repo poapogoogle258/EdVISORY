@@ -1,4 +1,4 @@
-const message = [1, 2];
+const tests = [1, 2,3,4,5,7];
 
 function SecondMax(data) {
   if(data.length == 0){
@@ -21,4 +21,6 @@ function SecondMax(data) {
   return answer
 }
 
-console.log(SecondMax(message))
+console.log(SecondMax(tests))
+
+
