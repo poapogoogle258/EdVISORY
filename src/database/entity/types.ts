@@ -17,4 +17,5 @@ export class Types {
 
     @DeleteDateColumn()
     deleted_at!: Date;
+    
 }

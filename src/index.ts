@@ -17,8 +17,6 @@ async function server() {
     logger: false
   })
 
-
-
   // set plugin upload files
   server.register(multipart)
 
@@ -53,7 +51,7 @@ async function server() {
   }
   console.log('register route success')
 
-  server.listen({ port: Number(process.env.PORT ?? "3000") }, (err, address) => {
+  server.listen({host : "0.0.0.0" ,port: Number(process.env.PORT ?? "3000") }, (err, address) => {
     if (err) {
       console.error(err)
       process.exit(1)

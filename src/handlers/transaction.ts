@@ -36,7 +36,8 @@ function antiSwear(text : string) : string {
     // TO DO : impalements
     const words = ["เลว", "ชั่ว", "ชาติหมา", "ควาย","ควย","เหี้ย", "ไอ่สัตร์", "แม่ง", "มึง", "กู", "ประยุทธ์"]
     
-    return words.reduce((v , w, i) => v.replaceAll(w, "****") , text) 
+    return words.reduce((v , w, i) => v.replaceAll(w, "****") , text)
+
 }
 
 export async function getAllTransactions(request : FastifyRequest<{ Querystring : queryFilter }>, reply : FastifyReply) {
@@ -56,8 +57,10 @@ export async function getAllTransactions(request : FastifyRequest<{ Querystring 
         isFirstWhere = false
     }
     else if(request.query.accounts != undefined){
+
         transactions = transactions.where('transaction.accountId IN (:...accounts)', {accounts : request.query.accounts.split(',')})
         isFirstWhere = false
+
     }
     
     if(request.query.start != undefined && request.query.end != undefined){
@@ -111,7 +114,6 @@ export async function createTransaction(request : FastifyRequest<{Body: bodyTran
     }
 
     request.body.note = antiSwear(request.body.note)
-
 
     const insect = {
         note : request.body.note,

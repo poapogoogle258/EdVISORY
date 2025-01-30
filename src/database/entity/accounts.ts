@@ -5,7 +5,7 @@ import { Transactions } from "./transactions"
 @Entity()
 export class Accounts {
     @PrimaryGeneratedColumn()
-    id!: number
+    id! : number
 
     @Column()
     name! : string
@@ -29,4 +29,5 @@ export class Accounts {
 
     @DeleteDateColumn()
     deleted_at!: Date;
+
 }
