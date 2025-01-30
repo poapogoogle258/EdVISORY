@@ -1,4 +1,4 @@
-const tests = [1, 2,3,4,5,7];
+const tests = [1,7,6,4,5,7];
 
 function SecondMax(data) {
   if(data.length == 0){
@@ -15,6 +15,8 @@ function SecondMax(data) {
   for (let i = 0; i < data.length; i++) {
     if (max == null || data[i] > max) {
       [max, answer] = [data[i], max];
+    }else if(answer == null || data[i] > answer && data[i] != max){
+      answer = data[i]
     }
   }
 
