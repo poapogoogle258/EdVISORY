@@ -15,4 +15,21 @@ assignment Back-End Developer : IncomeStatement
 
 ref : https://drive.google.com/file/d/1cneFOhoHBBbo3QAeOuYX0AqH4fgbAOw8/view
 
-ขอบคุณที่ให้ความสนใจในตัวผมครับ
+
+.env
+
+APP_USERNAME=app_username
+APP_PASSWORD=app_password
+PORT=3000
+
+DB_HOST=localhost
+DB_PORT=3306
+DB_NAME=app_db
+DB_USERNAME=username_app_db
+DB_PASSWORD=root
+
+
+file postman : ./IncomeStatement.postman_collection.json
+
+
+ขอบคุณที่ให้ความสนใจในตัวผมครับอยู่

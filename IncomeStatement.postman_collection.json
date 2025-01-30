@@ -1,0 +1,530 @@
+{
+	"info": {
+		"_postman_id": "2cc1975d-6a76-450a-811b-a7e034f83446",
+		"name": "IncomeStatement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39535809"
+	},
+	"item": [
+		{
+			"name": "types",
+			"item": [
+				{
+					"name": "types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/types?page=2&pagination=10",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"types"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "pagination",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : 11111,\n    \"description\" : \"งานรายรับของบริษัท\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/types",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"types"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pagination",
+									"value": "20",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update type",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"test update type\",\n    \"description\" : \"testing\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/types/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"types",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete type",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/types/12",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"types",
+								"12"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/accounts?page=1&pagination=10",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pagination",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"บริษัท e\",\n    \"description\" : \"บัญชีหลัก\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/accounts",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pagination",
+									"value": "20",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update accoute",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"test update type\",\n    \"description\" : \"testing 1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/accounts/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"accounts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/accounts/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"accounts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transactions",
+			"item": [
+				{
+					"name": "get transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/transactions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pagination",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "accounts",
+									"value": "1,2",
+									"disabled": true
+								},
+								{
+									"key": "types",
+									"value": "1,2",
+									"disabled": true
+								},
+								{
+									"key": "start",
+									"value": "2011-10-05T14:48:00.000Z",
+									"disabled": true
+								},
+								{
+									"key": "end",
+									"value": "2011-10-05T14:48:00.000Z",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountId\" : 1,\n    \"typeId\" : 1,\n    \"amount\" : 500,\n    \"note\" : \"เงินต้น + 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/transactions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit transaction",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountId\" : 2,\n    \"typeId\" : 3,\n    \"amount\" : 200,\n    \"note\" : \"ขอแม่\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/transactions/17",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"transactions",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete transaction",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountId\" : 1,\n    \"typeId\" : 1,\n    \"amount\" : 200,\n    \"note\" : \"ขอแม่\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/transactions/25",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"transactions",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/transactions/18",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"transactions",
+								"18"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "summary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/summary",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"summary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "attach slips",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/upload/transactions/:id/slips",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"upload",
+						"transactions",
+						":id",
+						"slips"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "public file",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/files/18_img-07-en.png",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"files",
+						"18_img-07-en.png"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "challenge",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/challenge/accounts/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"challenge",
+						"accounts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "app_password",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "app_username",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://127.0.0.1:3000",
+			"type": "string"
+		}
+	]
+}
